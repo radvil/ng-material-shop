@@ -1,0 +1,55 @@
+<div class="container fxc">
+  <mat-card class="mat-elevation-z2">
+    <div class="auth--header">
+      <img src="assets/icons/angular.png" alt="logo" />
+      <h2 class="m-0">Sign in</h2>
+    </div>
+
+    <form [formGroup]="form" (ngSubmit)="submitForm()">
+      <mat-form-field appearance="outline">
+        <mat-label>Username or Email</mat-label>
+        <input
+          formControlName="username"
+          matInput
+          type="text"
+          autocomplete="off"
+          placeholder="Enter your username or email"
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input
+          formControlName="password"
+          matInput
+          [type]="passwordInputType"
+          placeholder="Enter your password"
+        />
+        <mat-icon (click)="toggleShowPassword()" matSuffix>
+          {{ passwordIcon }}
+        </mat-icon>
+      </mat-form-field>
+
+      <button
+        *ngIf="!(isLoading$ | async); else loadingButton"
+        [disabled]="submitDisabled"
+        type="submit"
+        class="auth btn btn-primary"
+      >
+        <mat-icon>fingerprint</mat-icon>&nbsp;&nbsp;Login
+      </button>
+
+      <!-- loading button -->
+      <ng-template #loadingButton>
+        <button disabled class="auth btn btn-primary">
+          <mat-icon>fingerprint</mat-icon>&nbsp;&nbsp;Logging in...
+        </button>
+      </ng-template>
+    </form>
+
+    <div class="auth--options text-center">
+      <small>Do not have an account ?</small> <br />
+      <a routerLink="/auth/register">Sign up here</a>
+    </div>
+  </mat-card>
+</div>

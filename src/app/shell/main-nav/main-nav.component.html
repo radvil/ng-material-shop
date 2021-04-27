@@ -1,0 +1,27 @@
+<nav>
+  <ul class="fx-row">
+    <li *ngIf="user.isSuperUser" (click)="openMenu()" matRipple class="fx-1 hamburger">
+      <mat-icon>menu</mat-icon>
+    </li>
+    <li
+      *ngFor="let menu of mainMenu$ | async"
+      matRipple
+      class="fx-1"
+      [class.active]="getActiveLink(menu.routerLink)"
+      (click)="navigateTo(menu.routerLink)"
+    >
+      <mat-icon *ngIf="menu.iconName !== 'account_circle'; else image">
+        {{ menu.iconName }}
+      </mat-icon>
+      <ng-template #image>
+        <img
+          class="photo-thumb"
+          [src]="profileImage"
+        />
+      </ng-template>
+      <span *ngIf="getActiveLink(menu.routerLink)" class="menu-label">
+        {{ menu.label }}
+      </span>
+    </li>
+  </ul>
+</nav>

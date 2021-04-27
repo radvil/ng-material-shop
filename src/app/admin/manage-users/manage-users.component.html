@@ -1,0 +1,75 @@
+<div class="container full">
+  <h1 class="display-4">Users</h1>
+  <p>
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Esse, est ipsum?
+    Minus, incidunt.
+  </p>
+  <mat-card class="card p-2">
+    <div class="form-group">
+      <input
+        class="form-control"
+        type="text"
+        placeholder="Search user"
+        (keyup)="search($event)"
+      />
+      <small class="form-text text-muted">
+        Filter users and choose any further actions.
+      </small>
+    </div>
+
+    <ng-container *ngIf="(users$ | async)?.length; else noResult">
+      <table
+        *ngIf="users$ | async as users"
+        class="table table-borderless table-hover table-responsive-md"
+      >
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Username</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Super</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users; index as i">
+            <th scope="row">{{ i + 1 }}</th>
+            <td>{{ user.username }}</td>
+            <td>{{ user.displayName }}</td>
+            <td>{{ user.email }}</td>
+            <td>
+              <span
+                class="badge"
+                [ngClass]="user.isSuperUser ? 'badge-info' : 'badge-warning'"
+              >
+                {{ user.isSuperUser }}
+              </span>
+            </td>
+            <td class="actions">
+              <button
+                (click)="updateUser(user)"
+                matTooltip="edit user"
+                mat-icon-button
+              >
+                <mat-icon>edit</mat-icon>
+              </button>
+              <button
+                (click)="deleteUser(user.id)"
+                matTooltip="delete user"
+                mat-icon-button
+                color="warn"
+              >
+                <mat-icon>delete</mat-icon>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </ng-container>
+
+    <ng-template #noResult>
+      <h1>No Result</h1>
+    </ng-template>
+  </mat-card>
+</div>

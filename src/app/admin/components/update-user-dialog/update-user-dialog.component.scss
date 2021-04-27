@@ -1,0 +1,28 @@
+.fxc {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+button.submit {
+  display: flex;
+  align-items: center;
+  margin-left: 1rem;
+}
+
+@media (min-width: 777px) {
+  .mfx-row {
+    display: flex;
+    justify-content: space-between;
+    & > * {
+      flex-basis: 46%;
+    }
+  }
+}

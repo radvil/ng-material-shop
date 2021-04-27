@@ -1,0 +1,68 @@
+<h2 mat-dialog-title>Update <b>{{ displayName.value }}</b>'s info</h2>
+
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <mat-dialog-content>
+    <div class="mfx-row">
+      <mat-form-field appearance="outline">
+        <mat-label>Username</mat-label>
+        <input
+          formControlName="username"
+          matInput
+          type="text"
+          autocomplete="off"
+          placeholder="Enter your username"
+        />
+        <mat-error *ngIf="username.invalid">
+          {{ getErrorMessage("username") }}
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Email address</mat-label>
+        <input
+          formControlName="email"
+          matInput
+          type="email"
+          placeholder="Enter your email"
+        />
+        <mat-error *ngIf="email.invalid">
+          {{ getErrorMessage("email") }}
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Name</mat-label>
+      <input
+        formControlName="displayName"
+        matInput
+        type="text"
+        autocomplete="off"
+        placeholder="Enter your name"
+      />
+      <mat-error *ngIf="displayName.invalid">
+        {{ getErrorMessage("displayName") }}
+      </mat-error>
+    </mat-form-field>
+  </mat-dialog-content>
+
+
+<mat-dialog-actions align="end">
+  <button type="button" mat-button mat-dialog-close>Cancel</button>
+
+  <button
+    [disabled]="form.invalid"
+    type="submit"
+    class="submit btn btn-primary"
+  >
+    <mat-icon>save</mat-icon>&nbsp;&nbsp;Save
+  </button>
+</mat-dialog-actions>
+
+  <!-- loading button -->
+  <!-- <ng-template #loadingButton>
+    <button disabled class="auth btn btn-primary-outline">
+      <mat-icon>send</mat-icon>&nbsp;&nbsp;Submitting...
+    </button>
+  </ng-template> -->
+</form>

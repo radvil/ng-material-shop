@@ -1,0 +1,49 @@
+.top-right {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.content {
+  margin: 2rem 0 0;
+}
+.menu-list {
+  padding: 0;
+  list-style: none;
+}
+.menu-list-item {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  line-height: 1.2;
+  border-radius: 3rem;
+  min-height: 3rem;
+  padding: 1rem;
+  cursor: pointer;
+}
+.profile {
+  padding: 0.5rem;
+  img {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #ff00004f;
+  }
+  .name {
+    margin: 0;
+    margin-left: 1rem;
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    small {
+      font-size: 15px;
+    }
+  }
+}
+.menu-disabled {
+  color: #aaa;
+}
+.menu-label {
+  margin-top: 1rem;
+  margin: 1rem;
+}

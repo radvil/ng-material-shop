@@ -1,0 +1,7 @@
+<div class="container">
+  <h1 class="display-4">User Profile</h1>
+
+  <button class="btn btn-danger" (click)="logoutUser()">
+    {{ (isLoading$ | async) ? "Logging out..." : "Logout" }}
+  </button>
+</div>

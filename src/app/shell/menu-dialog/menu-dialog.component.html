@@ -1,0 +1,41 @@
+<button
+  (click)="sheetRef.dismiss()"
+  mat-icon-button
+  color="warn"
+  class="top-right"
+>
+  <mat-icon>close</mat-icon>
+</button>
+
+<div class="content">
+  <ul class="menu-list">
+    <li matRipple class="menu-list-item profile">
+      <!-- <img src="assets/images/portraits/2.png" alt="username" /> -->
+      <mat-icon>add</mat-icon>
+      <div class="name">
+        <span>Setup Your Store...</span>
+        <small>And start selling your products!</small>
+      </div>
+    </li>
+    <span class="menu-label badge badge-danger">Menu Admin</span>
+    <li
+      matRipple
+      (click)="navigateTo('/admin/manage-users')"
+      class="menu-list-item"
+    >
+      Manage Users
+    </li>
+    <li
+      matRipple
+      (click)="navigateTo('/admin/manage-categories')"
+      class="menu-list-item"
+    >
+      Manage Categories
+    </li>
+
+    <span class="menu-label badge badge-dark">Menu Store</span>
+    <li matRipple class="menu-list-item menu-disabled">Menu item 3</li>
+    <li matRipple class="menu-list-item menu-disabled">Menu item 4</li>
+    <li matRipple class="menu-list-item menu-disabled">Menu item 5</li>
+  </ul>
+</div>

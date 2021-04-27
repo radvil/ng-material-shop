@@ -1,0 +1,6 @@
+<div class="app-shell">
+  <main [class.isLoggedIn]="isLoggedIn">
+    <ng-content></ng-content>
+  </main>
+  <main-nav *ngIf="isLoggedIn"></main-nav>
+</div>
